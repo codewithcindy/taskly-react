@@ -62,21 +62,21 @@ function App() {
 
     // Retrieve array of tasks
     async function getTasks() {
-      fetch("http://localhost:8080/plannedTasks/index", signal)
+      fetch("plannedTasks/index", signal)
         .then((res) => res.json())
         .then((data) => {
           setPlannedTasks([...data]);
         })
         .catch((e) => e);
 
-      fetch("http://localhost:8080/progressTasks/index", signal)
+      fetch("progressTasks/index", signal)
         .then((res) => res.json())
         .then((data) => {
           setProgressTasks([...data]);
         })
         .catch((e) => e);
 
-      fetch("http://localhost:8080/completedTasks/index", signal)
+      fetch("completedTasks/index", signal)
         .then((res) => res.json())
         .then((data) => {
           setCompletedTasks([...data]);
@@ -94,7 +94,7 @@ function App() {
 
   // Connect to API
   function callAPI() {
-    fetch("http://localhost:8080/")
+    fetch("")
       .then((res) => console.log(res.text))
       .then((res) => setState({ apiResponse: "react connected to api" }))
       .catch((e) => console.log(e));
@@ -133,7 +133,7 @@ function App() {
       body: JSON.stringify(newPlannedTask),
     };
 
-    fetch("http://localhost:8080/plannedTasks/add", opts)
+    fetch("plannedTasks/add", opts)
       .then((response) => response.json())
       .then((data) => {
         setPlannedTasks([...plannedTasks, data]);
@@ -159,7 +159,7 @@ function App() {
     };
 
     // Add new Progress task to progressTask sDB
-    fetch("http://localhost:8080/progressTasks/add", opts)
+    fetch("progressTasks/add", opts)
       .then((response) => response.json())
       .then((data) => {
         setProgressTasks([...progressTasks, data]);
@@ -168,7 +168,7 @@ function App() {
       .catch((e) => console.log(e));
 
     // Remove task from PlannedTasks DB
-    fetch(`http://localhost:8080/plannedTasks/${task._id}`, {
+    fetch(`plannedTasks/${task._id}`, {
       method: "DELETE",
     });
 
@@ -201,7 +201,7 @@ function App() {
     };
 
     // Add task to completedTasks DB
-    fetch("http://localhost:8080/completedTasks/add", opts)
+    fetch("completedTasks/add", opts)
       .then((response) => response.json())
       .then((data) => {
         setCompletedTasks([...completedTasks, data]);
@@ -210,7 +210,7 @@ function App() {
       .catch((e) => console.log(e));
 
     // Remove task from progressTasks DB
-    fetch(`http://localhost:8080/progressTasks/${task._id}`, {
+    fetch(`progressTasks/${task._id}`, {
       method: "DELETE",
     });
   }
@@ -232,9 +232,9 @@ function App() {
     // Remove selected task
     setSelectedPlannedTaskId([]);
 
-    await fetch(`http://localhost:8080/plannedTasks/${id}`, opts);
+    await fetch(`plannedTasks/${id}`, opts);
 
-    fetch("http://localhost:8080/plannedTasks/index", {
+    fetch("plannedTasks/index", {
       method: "GET",
     })
       .then((res) => res.json())
@@ -260,9 +260,9 @@ function App() {
     // Remove selected task
     setSelectedProgressTaskId([]);
 
-    await fetch(`http://localhost:8080/progressTasks/${id}`, opts);
+    await fetch(`progressTasks/${id}`, opts);
 
-    fetch("http://localhost:8080/progressTasks/index", {
+    fetch("progressTasks/index", {
       method: "GET",
     })
       .then((res) => res.json())
@@ -280,7 +280,7 @@ function App() {
 
     setPlannedTasks([...updatedPlannedTasks]);
 
-    fetch(`http://localhost:8080/plannedTasks/${task._id}`, {
+    fetch(`plannedTasks/${task._id}`, {
       method: "DELETE",
     });
   }
@@ -293,7 +293,7 @@ function App() {
 
     setProgressTasks([...updatedProgressTasks]);
 
-    fetch(`http://localhost:8080/progressTasks/${task._id}`, {
+    fetch(`progressTasks/${task._id}`, {
       method: "DELETE",
     });
   }
@@ -306,13 +306,13 @@ function App() {
 
     setCompletedTasks([...updatedCompletedTasks]);
 
-    fetch(`http://localhost:8080/completedTasks/${task._id}`, {
+    fetch(`completedTasks/${task._id}`, {
       method: "DELETE",
     });
   }
 
   async function handleClearAll() {
-    fetch(`http://localhost:8080/tasks`, { method: "DELETE" })
+    fetch(`tasks`, { method: "DELETE" })
       .then((res) => res.text())
       .then((data) => {
         return setClearTasks(true);

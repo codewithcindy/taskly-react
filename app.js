@@ -80,16 +80,9 @@ app.post("/plannedTasks/add", async (req, res) => {
 
 app.post("/progressTasks/add", async (req, res) => {
   const formData = { ...req.body };
-
-  console.log(formData);
-
   const newProgressTask = await new ProgressTask(formData);
-  console.log(newProgressTask);
 
   newProgressTask.save();
-
-  console.log("new progress task added");
-  // res.send("yay");
 
   res.json(newProgressTask);
 });
@@ -97,22 +90,15 @@ app.post("/progressTasks/add", async (req, res) => {
 app.post("/completedTasks/add", async (req, res) => {
   const formData = { ...req.body };
 
-  console.log(formData);
-
   const newCompletedTask = await new CompletedTask(formData);
-  console.log(newCompletedTask);
 
   newCompletedTask.save();
-
-  console.log("new completed task added");
-  // res.send("yay");
 
   res.json(newCompletedTask);
 });
 
 app.patch("/plannedTasks/:id", async (req, res) => {
   const { text } = req.body;
-
   const updatedTask = await PlannedTask.findByIdAndUpdate(
     req.params.id,
     {
@@ -128,7 +114,6 @@ app.patch("/plannedTasks/:id", async (req, res) => {
 
 app.patch("/progressTasks/:id", async (req, res) => {
   const { text } = req.body;
-
   const updatedTask = await ProgressTask.findByIdAndUpdate(
     req.params.id,
     {

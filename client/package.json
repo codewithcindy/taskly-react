@@ -21,6 +21,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
+  "proxy": "https://taskly-react.herokuapp.com",
   "eslintConfig": {
     "extends": [
       "react-app",
