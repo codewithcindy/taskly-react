@@ -16,7 +16,7 @@ mongoose
   .catch((e) => console.log("Error connecting to database", e));
 
 // Serve files for React app
-app.use(express.static(path.resolve(__dirname, "../client/build")));
+app.use(express.static(path.resolve(__dirname, "client/build")));
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
@@ -167,7 +167,7 @@ app.delete("/tasks", async (req, res) => {
 
 // All other GET requests not handled before will return our React app
 app.get("*", (req, res) => {
-  res.sendFile(path.resolve(__dirname, "../client/build", "index.html"));
+  res.sendFile(path.resolve(__dirname, "client/build", "index.html"));
 });
 
 app.listen(port, () => {
