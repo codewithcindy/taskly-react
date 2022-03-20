@@ -22,9 +22,9 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(cors());
 
-app.get("/", (req, res) => {
-  res.send("server good");
-});
+// app.get("/", (req, res) => {
+//   res.send("server good");
+// });
 
 // Retrieve list of planned tasks
 app.get("/plannedTasks/index", async (req, res) => {
