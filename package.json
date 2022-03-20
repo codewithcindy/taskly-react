@@ -10,7 +10,7 @@
   },
   "devDependencies": {},
   "scripts": {
-    "start": "node api/app.js",
+    "start": "node app.js",
     "build": "cd client && npm install & npm run build"
   },
   "engines": {
