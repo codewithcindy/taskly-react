@@ -94,7 +94,7 @@ function App() {
 
   // Connect to API
   function callAPI() {
-    fetch("")
+    fetch("/")
       .then((res) => console.log(res.text))
       .then((res) => setState({ apiResponse: "react connected to api" }))
       .catch((e) => console.log(e));
