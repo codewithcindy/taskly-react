@@ -5,8 +5,7 @@ const cors = require("cors");
 const mongoose = require("mongoose");
 const { PlannedTask, ProgressTask, CompletedTask } = require("./models/task");
 
-// const port = process.env.PORT || 3000;
-const port = 3000;
+const port = process.env.PORT || 3000;
 
 // Mongoose
 mongoose
