@@ -5,7 +5,8 @@ const cors = require("cors");
 const mongoose = require("mongoose");
 const { PlannedTask, ProgressTask, CompletedTask } = require("./models/task");
 
-const port = process.env.PORT || 8080;
+// const port = process.env.PORT || 3000;
+const port = 3000;
 
 // Mongoose
 mongoose
@@ -28,9 +29,6 @@ app.use(cors());
 
 // Retrieve list of planned tasks
 app.get("/plannedTasks/index", async (req, res) => {
-  // const result = await Task.find({});
-  // console.log(result);
-
   const result = await PlannedTask.find()
     .then((res) => res)
     .catch((e) => console.log(e));
@@ -40,9 +38,6 @@ app.get("/plannedTasks/index", async (req, res) => {
 
 // Retrieve list of progress tasks
 app.get("/progressTasks/index", async (req, res) => {
-  // const result = await Task.find({});
-  // console.log(result);
-
   const result = await ProgressTask.find()
     .then((res) => res)
     .catch((e) => console.log(e));
@@ -52,28 +47,19 @@ app.get("/progressTasks/index", async (req, res) => {
 
 // Retrieve list of progress tasks
 app.get("/completedTasks/index", async (req, res) => {
-  // const result = await Task.find({});
-  // console.log(result);
-
   const result = await CompletedTask.find()
     .then((res) => res)
     .catch((e) => console.log(e));
 
   res.json(result);
 });
+
 // Create new task instance/document
 app.post("/plannedTasks/add", async (req, res) => {
   const formData = { ...req.body };
-
-  console.log(formData);
-
   const newPlannedTask = await new PlannedTask(formData);
-  console.log(newPlannedTask);
 
   newPlannedTask.save();
-
-  console.log("new task added");
-  // res.send("yay");
 
   res.json(newPlannedTask);
 });
@@ -89,7 +75,6 @@ app.post("/progressTasks/add", async (req, res) => {
 
 app.post("/completedTasks/add", async (req, res) => {
   const formData = { ...req.body };
-
   const newCompletedTask = await new CompletedTask(formData);
 
   newCompletedTask.save();

@@ -25,7 +25,6 @@ export default function EditPlannedTask({ task }) {
         onSubmit={(e) => {
           e.preventDefault();
           handlePlannedTaskUpdate(task._id, e.target[0].value);
-          console.log("submit");
         }}
       >
         <label htmlFor="task"></label>
@@ -35,7 +34,6 @@ export default function EditPlannedTask({ task }) {
           value={currentTask.text}
           onChange={(e) => {
             handleChange({ text: e.target.value });
-            console.log("changing");
           }}
         />
         <button className="button__submit-change">

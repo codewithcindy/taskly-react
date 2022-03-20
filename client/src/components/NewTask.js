@@ -21,7 +21,6 @@ export default function NewTask() {
         onSubmit={(e) => {
           e.preventDefault();
           return handleTaskSubmit(e.target.task.value);
-          // return handleTaskAdd(e.target.task.value, "planned");
         }}
       >
         <label htmlFor="task"></label>

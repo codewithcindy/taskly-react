@@ -62,21 +62,21 @@ function App() {
 
     // Retrieve array of tasks
     async function getTasks() {
-      fetch("plannedTasks/index", signal)
+      fetch("/plannedTasks/index", signal)
         .then((res) => res.json())
         .then((data) => {
           setPlannedTasks([...data]);
         })
         .catch((e) => e);
 
-      fetch("progressTasks/index", signal)
+      fetch("/progressTasks/index", signal)
         .then((res) => res.json())
         .then((data) => {
           setProgressTasks([...data]);
         })
         .catch((e) => e);
 
-      fetch("completedTasks/index", signal)
+      fetch("/completedTasks/index", signal)
         .then((res) => res.json())
         .then((data) => {
           setCompletedTasks([...data]);
@@ -133,7 +133,7 @@ function App() {
       body: JSON.stringify(newPlannedTask),
     };
 
-    fetch("plannedTasks/add", opts)
+    fetch("/plannedTasks/add", opts)
       .then((response) => response.json())
       .then((data) => {
         setPlannedTasks([...plannedTasks, data]);
@@ -159,7 +159,7 @@ function App() {
     };
 
     // Add new Progress task to progressTask sDB
-    fetch("progressTasks/add", opts)
+    fetch("/progressTasks/add", opts)
       .then((response) => response.json())
       .then((data) => {
         setProgressTasks([...progressTasks, data]);
@@ -168,7 +168,7 @@ function App() {
       .catch((e) => console.log(e));
 
     // Remove task from PlannedTasks DB
-    fetch(`plannedTasks/${task._id}`, {
+    fetch(`/plannedTasks/${task._id}`, {
       method: "DELETE",
     });
 
@@ -201,7 +201,7 @@ function App() {
     };
 
     // Add task to completedTasks DB
-    fetch("completedTasks/add", opts)
+    fetch("/completedTasks/add", opts)
       .then((response) => response.json())
       .then((data) => {
         setCompletedTasks([...completedTasks, data]);
@@ -210,7 +210,7 @@ function App() {
       .catch((e) => console.log(e));
 
     // Remove task from progressTasks DB
-    fetch(`progressTasks/${task._id}`, {
+    fetch(`/progressTasks/${task._id}`, {
       method: "DELETE",
     });
   }
@@ -234,7 +234,7 @@ function App() {
 
     await fetch(`plannedTasks/${id}`, opts);
 
-    fetch("plannedTasks/index", {
+    fetch("/plannedTasks/index", {
       method: "GET",
     })
       .then((res) => res.json())
@@ -262,7 +262,7 @@ function App() {
 
     await fetch(`progressTasks/${id}`, opts);
 
-    fetch("progressTasks/index", {
+    fetch("/progressTasks/index", {
       method: "GET",
     })
       .then((res) => res.json())
@@ -280,7 +280,7 @@ function App() {
 
     setPlannedTasks([...updatedPlannedTasks]);
 
-    fetch(`plannedTasks/${task._id}`, {
+    fetch(`/plannedTasks/${task._id}`, {
       method: "DELETE",
     });
   }
@@ -293,7 +293,7 @@ function App() {
 
     setProgressTasks([...updatedProgressTasks]);
 
-    fetch(`progressTasks/${task._id}`, {
+    fetch(`/progressTasks/${task._id}`, {
       method: "DELETE",
     });
   }
@@ -306,7 +306,7 @@ function App() {
 
     setCompletedTasks([...updatedCompletedTasks]);
 
-    fetch(`completedTasks/${task._id}`, {
+    fetch(`/completedTasks/${task._id}`, {
       method: "DELETE",
     });
   }
