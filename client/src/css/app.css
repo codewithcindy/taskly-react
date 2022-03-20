@@ -1,0 +1,47 @@
+@import "./tasks.css";
+@import "./buttons.css";
+
+*,
+*::before,
+*::after {
+  font-family: Times New Roman, serif;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  padding: 0;
+  margin: 0;
+
+  height: 100%;
+}
+
+body {
+  background-color: #ddd2ce;
+  font-size: 18px;
+  min-height: 100vh;
+
+  padding: 2rem;
+}
+
+.container {
+  background-color: #ece1e1;
+  padding: 3rem;
+  height: 90vh;
+
+  display: flex;
+  flex-direction: column;
+}
+
+.title {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.description {
+  text-align: center;
+  font-size: 0.8rem;
+  color: #6b6b6b;
+  margin-bottom: 2rem;
+}

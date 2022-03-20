@@ -1,0 +1,62 @@
+.button__next {
+  font-size: 1rem;
+  font-weight: bold;
+  color: #a8a8a8;
+  padding: 0 0.5rem;
+}
+
+.button {
+  background: none;
+  border: none;
+}
+
+.button:hover {
+  cursor: pointer;
+}
+
+.button__new {
+  padding: 0.2rem 0.5rem;
+  background-color: rgba(221, 210, 206, 0.9);
+}
+
+.button__new:hover {
+  background-color: rgba(221, 210, 206, 0.1);
+}
+
+.button__delete {
+  border: none;
+  color: #a8a8a8;
+  margin: 0 0.5rem;
+  background-color: #ece1e1;
+  opacity: 0.5;
+}
+
+.button__delete:hover {
+  opacity: 1;
+  cursor: pointer;
+}
+
+.button__submit-change {
+  background-color: #ece1e1;
+  border: none;
+  margin: 0 0.5rem;
+  color: rgb(112, 160, 112);
+}
+
+.button__submit-change:hover {
+  color: rgb(65, 90, 65);
+  cursor: pointer;
+}
+
+.button__clear {
+  margin: 1rem auto;
+  /* text-align: center; */
+  width: auto;
+  background: none;
+  border: none;
+  color: #a8a8a8;
+}
+
+.button__clear:hover {
+  color: #616161;
+}
