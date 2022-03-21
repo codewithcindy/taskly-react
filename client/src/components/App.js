@@ -136,17 +136,17 @@ function App() {
       body: JSON.stringify(newPlannedTask),
     };
 
-    // fetch("/plannedTasks/add", opts)
-    //   .then((response) => response.json())
-    //   .then((data) => {
-    //     setPlannedTasks([...plannedTasks, data]);
-    //     return data;
-    //   })
-    //   .catch((e) => console.log(e));
+    fetch("/plannedTasks/add", opts)
+      .then((response) => response.json())
+      .then((data) => {
+        setPlannedTasks([...plannedTasks, data]);
+        return data;
+      })
+      .catch((e) => console.log(e));
 
-    const data = await fetch("/plannedTasks/add", opts);
+    // const data = await fetch("/plannedTasks/add", opts);
 
-    setPlannedTasks([...plannedTasks, data]);
+    // setPlannedTasks([...plannedTasks, data]);
   }
 
   // Add new Progress Task
