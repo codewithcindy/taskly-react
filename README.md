@@ -23,3 +23,7 @@ Taskly is a simple task managing app that allows users to add, edit, delete, and
 ### Try It Out
 
 [Taskly](https://taskly-react.herokuapp.com/)
+
+### Visuals
+
+![home_page](screenshots/taskly.png)
