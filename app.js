@@ -119,16 +119,22 @@ app.patch("/progressTasks/:id", async (req, res) => {
 app.delete("/plannedTasks/:id", async (req, res) => {
   const { id } = req.params;
   await PlannedTask.findByIdAndDelete(id);
+
+  res.json();
 });
 
 app.delete("/progressTasks/:id", async (req, res) => {
   const { id } = req.params;
   await ProgressTask.findByIdAndDelete(id);
+
+  res.json();
 });
 
 app.delete("/completedTasks/:id", async (req, res) => {
   const { id } = req.params;
   await CompletedTask.findByIdAndDelete(id);
+
+  res.json();
 });
 
 app.delete("/tasks", async (req, res) => {
