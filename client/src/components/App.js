@@ -93,7 +93,7 @@ function App() {
   }, [clearTasks]);
 
   // Connect to API
-  function callAPI() {
+  async function callAPI() {
     fetch("/")
       .then((res) => console.log(res.text))
       .then((res) => {
@@ -104,7 +104,7 @@ function App() {
   }
 
   // Handle Planned task selection
-  function handlePlannedTaskSelected(task) {
+  async function handlePlannedTaskSelected(task) {
     // Deselect any task from In Progress section
     setSelectedProgressTaskId([]);
 
@@ -113,7 +113,7 @@ function App() {
   }
 
   // Handle Progress task selection
-  function handleProgressTaskSelected(task) {
+  async function handleProgressTaskSelected(task) {
     // Deselect any task from Planned section
     setSelectedPlannedTaskId([]);
 
@@ -150,7 +150,7 @@ function App() {
   }
 
   // Add new Progress Task
-  function handleTaskProgress(task, section) {
+  async function handleTaskProgress(task, section) {
     const newProgressTask = {
       text: task.text,
       section: section,
@@ -187,7 +187,7 @@ function App() {
     setPlannedTasks(updatedPlannedTasks);
   }
 
-  function handleTaskCompleted(task) {
+  async function handleTaskCompleted(task) {
     const newCompletedTask = {
       text: task.text,
     };
