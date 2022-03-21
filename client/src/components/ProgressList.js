@@ -13,7 +13,6 @@ export default function ProgressList({ progressTasks }) {
         <ul className="tasks__list">
           {progressTasks.map((task) => {
             if (selectedProgressTask === task) {
-              console.log(task);
               return <EditProgressTask key={task._id} task={task} />;
             } else {
               return <ProgressTask key={task._id} task={task} />;

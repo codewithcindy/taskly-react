@@ -267,7 +267,7 @@ function App() {
     // Remove selected task
     setSelectedProgressTaskId([]);
 
-    await fetch(`progressTasks/${id}`, opts);
+    await fetch(`/progressTasks/${id}`, opts);
 
     fetch("/progressTasks/index", {
       method: "GET",
@@ -287,7 +287,7 @@ function App() {
 
     setPlannedTasks([...updatedPlannedTasks]);
 
-    fetch(`/plannedTasks/${task._id}`, {
+    await fetch(`/plannedTasks/${task._id}`, {
       method: "DELETE",
     });
   }
@@ -300,7 +300,7 @@ function App() {
 
     setProgressTasks([...updatedProgressTasks]);
 
-    fetch(`/progressTasks/${task._id}`, {
+    await fetch(`/progressTasks/${task._id}`, {
       method: "DELETE",
     });
   }
@@ -313,13 +313,13 @@ function App() {
 
     setCompletedTasks([...updatedCompletedTasks]);
 
-    fetch(`/completedTasks/${task._id}`, {
+    await fetch(`/completedTasks/${task._id}`, {
       method: "DELETE",
     });
   }
 
   async function handleClearAll() {
-    fetch(`tasks`, { method: "DELETE" })
+    fetch(`/tasks`, { method: "DELETE" })
       .then((res) => res.text())
       .then((data) => {
         return setClearTasks(true);
