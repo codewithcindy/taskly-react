@@ -223,7 +223,6 @@ function App() {
   }
 
   async function handlePlannedTaskUpdate(id, text) {
-    console.log(text);
     const updateTask = {
       text,
     };
